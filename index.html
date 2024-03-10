@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Grade Calculator</title>
+  <style>
+    body {
+      
+      text-align: center;
+      margin: 5px;
+    }
+
+    #calculator {
+      max-width: 400px;
+      margin: auto;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin: 5px 0;
+      box-sizing: border-box;
+      font-size: x-large;
+    }
+
+    button {
+      background-color: blue;
+      color: white;
+      font-size: x-large;
+      padding: 10px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    #result {
+      font-weight: bold;
+      margin-top: 20px;
+      font-size: xx-large;
+    }
+  </style>
+</head>
+<body>
+
+<div id="calculator">
+  <h2 style="font-size:xx-large; border: 2px;" >Welcome to Student Grade Calculator</h2>
+
+  <label for="score" style="font-size: xx-large;">Enter your score to get the grade <br>(out of 100):</label>
+  <input type="number" id="score" placeholder="Enter your score" required>
+
+  <button onclick="GradeCalculate()">Calculate Grade</button>
+
+  <div id="result"></div>
+</div>
+
+<script>
+  function GradeCalculate() {
+    
+    var score=document.getElementById('score').value;
+
+
+    if (score === '' || isNaN(score)) {
+      alert('Please enter a valid score');
+      return;
+    }
+
+   
+    score = parseFloat(score);
+
+    var grade;
+    if (score >= 90) {
+      grade = 'A';
+    } else if (score >= 80) {
+      grade = 'B';
+    } else if (score >= 70) {
+      grade = 'C';
+    } else if (score >= 60) {
+      grade = 'D';
+    } else {
+      grade = 'F';
+    }
+    var result = document.getElementById('result');
+    result.innerHTML = 'Your grade is: ' + grade;
+  }
+</script>
+
+</body>
+</html>
